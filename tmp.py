@@ -110,7 +110,7 @@ def main():
 
 
     model_name = "vgg16"
-    net = vgg(model_name = model_name, num_classes = 3 * 224 * 224)
+    net = vgg(model_name = model_name)
     weight_path = '../vgg16-pre.pth'
 
     # 抽出预训练模型中的K,V

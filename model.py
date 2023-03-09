@@ -12,10 +12,9 @@ model_urls = {
 
 
 class VGG(nn.Module):
-    def __init__(self, features, num_classes=1000, init_weights=False):
+    def __init__(self, features, init_weights=False):
         super(VGG, self).__init__()
         self.features = features
-        # self.num_classes = num_classes
         self.cnn2 = nn.Sequential(
             nn.BatchNorm2d(num_features = 256),
             nn.Upsample(scale_factor=2, mode='nearest'),
@@ -27,7 +26,7 @@ class VGG(nn.Module):
             nn.Conv2d(8, 3, kernel_size=3, padding=1),
             nn.Tanh()
         )
-        # self.linear = nn.Linear(3 * 224 * 224, num_classes)
+
 
         if init_weights:
             self._initialize_weights()
